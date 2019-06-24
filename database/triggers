@@ -1,0 +1,131 @@
+--
+-- Triggers `fraccionamiento`
+--
+
+DROP TRIGGER IF EXISTS after_insert_fraccionamiento;
+DELIMITER $$
+CREATE TRIGGER `after_insert_fraccionamiento` AFTER INSERT ON `fraccionamiento`
+ FOR EACH ROW INSERT INTO SCMCG_db.sites(id,name,deleted) VALUES (NEW.id, NEW.nombre, !NEW.activo)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_update_fraccionamiento;
+DELIMITER $$
+CREATE TRIGGER `after_update_fraccionamiento` AFTER UPDATE ON `fraccionamiento` FOR EACH ROW UPDATE SCMCG_db.sites SET SCMCG_db.sites.name = NEW.nombre, SCMCG_db.sites.deleted = !NEW.activo WHERE SCMCG_db.sites.id = NEW.id
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_delete_fraccionamiento;
+DELIMITER $$
+CREATE TRIGGER `after_delete_fraccionamiento` AFTER DELETE ON `fraccionamiento`
+ FOR EACH ROW DELETE FROM SCMCG_db.sites WHERE SCMCG_db.sites.id = OLD.id
+$$
+DELIMITER ;
+
+--
+-- Triggers `manzana`
+--
+DROP TRIGGER IF EXISTS after_insert_manzana;
+DELIMITER $$
+CREATE TRIGGER `after_insert_manzana` AFTER INSERT ON `manzana`
+ FOR EACH ROW INSERT INTO SCMCG_db.blocks(id,name,site_id, deleted) VALUES (NEW.id, NEW.nombre, NEW.id_fraccionamiento, !NEW.activo)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_update_manzana;
+DELIMITER $$
+CREATE TRIGGER `after_update_manzana` AFTER UPDATE ON `manzana`
+ FOR EACH ROW UPDATE SCMCG_db.blocks SET SCMCG_db.blocks.name = NEW.nombre, SCMCG_db.blocks.site_id = NEW.id_fraccionamiento, SCMCG_db.blocks.deleted = !NEW.activo WHERE SCMCG_db.blocks.id = NEW.id
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_delete_manzana;
+DELIMITER $$
+CREATE TRIGGER `after_delete_manzana` AFTER DELETE ON `manzana`
+ FOR EACH ROW DELETE FROM SCMCG_db.blocks WHERE SCMCG_db.blocks.id = OLD.id
+$$
+DELIMITER ;
+
+--
+-- Triggers `lotes`
+--
+DROP TRIGGER IF EXISTS after_insert_lote;
+DELIMITER $$
+CREATE TRIGGER `after_insert_lote` AFTER INSERT ON `lote`
+ FOR EACH ROW INSERT INTO SCMCG_db.lots(id, name, block_id, prototype_id, deleted) VALUES (NEW.id, NEW.nombre, NEW.id_manzana, NEW.id_prototipo, !NEW.activo)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_update_lote;
+DELIMITER $$
+CREATE TRIGGER `after_update_lote` AFTER UPDATE ON `lote`
+ FOR EACH ROW UPDATE SCMCG_db.lots SET SCMCG_db.lots.name = NEW.nombre, SCMCG_db.lots.block_id = NEW.id_manzana, SCMCG_db.lots.prototype_id = NEW.id_prototipo, SCMCG_db.lots.deleted = !NEW.activo WHERE SCMCG_db.lots.id = NEW.id
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_delete_lote;
+DELIMITER $$
+CREATE TRIGGER `after_delete_lote` AFTER DELETE ON `lote`
+ FOR EACH ROW DELETE FROM SCMCG_db.lots WHERE SCMCG_db.lots.id = OLD.id
+$$
+DELIMITER ;
+
+--
+-- Triggers `detalle`
+--
+DROP TRIGGER IF EXISTS after_insert_detalle;
+DELIMITER $$
+CREATE TRIGGER `after_insert_detalle` AFTER INSERT ON `detalle`
+ FOR EACH ROW INSERT INTO SCMCG_db.details(id, name, deleted) VALUES (NEW.id, NEW.nombre, !NEW.activo)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_update_detalle;
+DELIMITER $$
+CREATE TRIGGER `after_update_detalle` AFTER UPDATE ON `detalle`
+ FOR EACH ROW UPDATE SCMCG_db.details SET SCMCG_db.details.name = NEW.nombre, SCMCG_db.details.deleted = !NEW.activo WHERE SCMCG_db.details.id = NEW.id
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_delete_detalle;
+DELIMITER $$
+CREATE TRIGGER `after_delete_detalle` AFTER DELETE ON `detalle`
+ FOR EACH ROW DELETE FROM SCMCG_db.details WHERE SCMCG_db.details.id = OLD.id
+$$
+DELIMITER ;
+
+--
+-- Triggers `lotedetalle`
+--
+DROP TRIGGER IF EXISTS after_insert_lotedetalle;
+DELIMITER $$
+CREATE TRIGGER `after_insert_lotedetalle` AFTER INSERT ON `lotedetalle`
+ FOR EACH ROW INSERT INTO SCMCG_db.lot_details(id, lot_id, detail_id, authorized) VALUES (NEW.id, NEW.id_lote, NEW.id_detalle, NEW.autorizado)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_update_lotedetalle;
+DELIMITER $$
+CREATE TRIGGER `after_update_lotedetalle` AFTER UPDATE ON `lotedetalle`
+ FOR EACH ROW UPDATE SCMCG_db.lot_details SET SCMCG_db.lot_details.lot_id = NEW.id_lote, SCMCG_db.lot_details.detail_id = NEW.id_detalle, SCMCG_db.lot_details.authorized = NEW.autorizado WHERE SCMCG_db.lot_details.id = NEW.id
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_delete_lotedetalle;
+DELIMITER $$
+CREATE TRIGGER `after_delete_lotedetalle` AFTER DELETE ON `lotedetalle`
+ FOR EACH ROW DELETE FROM SCMCG_db.lot_details WHERE SCMCG_db.lot_details.id = OLD.id
+$$
+DELIMITER ;
+
+--
+-- Triggers `prototypes`
+--
+DROP TRIGGER IF EXISTS after_insert_prototipo;
+DELIMITER $$
+CREATE TRIGGER `after_insert_prototipo` AFTER INSERT ON `prototipo`
+ FOR EACH ROW INSERT INTO SCMCG_db.prototypes(id, name, deleted) VALUES (NEW.id, NEW.nombre, !NEW.activo)
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_update_prototipo;
+DELIMITER $$
+CREATE TRIGGER `after_update_prototipo` AFTER UPDATE ON `prototipo`
+ FOR EACH ROW UPDATE SCMCG_db.prototypes SET SCMCG_db.prototypes.name = NEW.nombre, SCMCG_db.prototypes.deleted = !NEW.activo  WHERE SCMCG_db.prototypes.id = NEW.id
+$$
+DELIMITER ;
+DROP TRIGGER IF EXISTS after_delete_prototipo;
+DELIMITER $$
+CREATE TRIGGER `after_delete_prototipo` AFTER DELETE ON `prototipo`
+ FOR EACH ROW DELETE FROM SCMCG_db.prototypes WHERE SCMCG_db.prototypes.id = OLD.id
+$$
+DELIMITER ;
