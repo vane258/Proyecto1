@@ -149,7 +149,36 @@
             <li><a href="{{ route('categorias.list') }}"><i class="fa fa-circle-o"></i> Ver lista de categorias</a></li>
           </ul>
         </li>
+
+
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-user"></i>
+            <span>Clientes</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('categorias.create') }}"><i class="fa fa-circle-o"></i> Añadir cliente</a></li>
+            <li><a href="{{ route('categorias.list') }}"><i class="fa fa-circle-o"></i> Ver lista de clientes</a></li>
+          </ul>
+        </li>
         
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-money"></i>
+            <span>Ventas</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('categorias.create') }}"><i class="fa fa-circle-o"></i> Añadir venta</a></li>
+            <li><a href="{{ route('categorias.list') }}"><i class="fa fa-circle-o"></i> Ver lista de ventas</a></li>
+          </ul>
+        </li>
+
       </ul>
     </section>
     <!-- /.sidebar -->
