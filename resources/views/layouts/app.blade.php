@@ -160,8 +160,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('categorias.create') }}"><i class="fa fa-circle-o"></i> Añadir cliente</a></li>
-            <li><a href="{{ route('categorias.list') }}"><i class="fa fa-circle-o"></i> Ver lista de clientes</a></li>
+            <li><a href="{{ route('clientes.create') }}"><i class="fa fa-circle-o"></i> Añadir cliente</a></li>
+            <li><a href="{{ route('clientes.list') }}"><i class="fa fa-circle-o"></i> Ver lista de clientes</a></li>
           </ul>
         </li>
         

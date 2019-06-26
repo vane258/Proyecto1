@@ -384,6 +384,7 @@ class ComposerStaticInit806edeb2b5f93428d82661f7e2bc6791
 
     public static $classMap = array (
         'App\\Categorias' => __DIR__ . '/../..' . '/app/Categorias.php',
+        'App\\Clientes' => __DIR__ . '/../..' . '/app/Clientes.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\ArticulosController' => __DIR__ . '/../..' . '/app/Http/Controllers/ArticulosController.php',
@@ -412,10 +413,9 @@ class ComposerStaticInit806edeb2b5f93428d82661f7e2bc6791
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\User_type' => __DIR__ . '/../..' . '/app/User_type.php',
+        'App\\Ventas' => __DIR__ . '/../..' . '/app/Ventas.php',
         'App\\articulos' => __DIR__ . '/../..' . '/app/articulos.php',
-        'App\\cliente' => __DIR__ . '/../..' . '/app/cliente.php',
         'App\\detalle_venta' => __DIR__ . '/../..' . '/app/detalle_venta.php',
-        'App\\venta' => __DIR__ . '/../..' . '/app/venta.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Barryvdh\\DomPDF\\Facade' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade.php',

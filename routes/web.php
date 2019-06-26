@@ -32,6 +32,18 @@ Route::group(['middleware'=>['auth']], function () {
         Route::post('/articulos', 'ArticulosController@store')->name('articulos.store');
         Route::delete('/articulos/{articulo}', 'ArticulosController@destroy')->name('articulos.destroy');
         Route::put('/articulos/{articulo}', 'ArticulosController@update')->name('articulos.update');
+
+
+
+
+
+        Route::get('/clientes', 'ClientesController@index')->name('clientes.list');
+        Route::get('/clientes/{id}', 'ClientesController@show')->where('id', '[0-9]+')->name('clientes.show');
+        Route::get('/clientes/nuevo', 'ClientesController@create')->name('clientes.create');
+        Route::get('/clientes/{cliente}/editar', 'ClientesController@edit')->where('id', '[0-9]+')->name('clientes.edit');
+        Route::post('/clientes', 'ClientesController@store')->name('clientes.store');
+        Route::delete('/clientes/{cliente}', 'ClientesController@destroy')->name('clientes.destroy');
+        Route::put('/clientes/{cliente}', 'ClientesController@update')->name('clientes.update');
     }); 
 });
 

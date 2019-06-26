@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Categorias' => $baseDir . '/app/Categorias.php',
+    'App\\Clientes' => $baseDir . '/app/Clientes.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\ArticulosController' => $baseDir . '/app/Http/Controllers/ArticulosController.php',
@@ -35,10 +36,9 @@ return array(
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\User_type' => $baseDir . '/app/User_type.php',
+    'App\\Ventas' => $baseDir . '/app/Ventas.php',
     'App\\articulos' => $baseDir . '/app/articulos.php',
-    'App\\cliente' => $baseDir . '/app/cliente.php',
     'App\\detalle_venta' => $baseDir . '/app/detalle_venta.php',
-    'App\\venta' => $baseDir . '/app/venta.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'Barryvdh\\DomPDF\\Facade' => $vendorDir . '/barryvdh/laravel-dompdf/src/Facade.php',
