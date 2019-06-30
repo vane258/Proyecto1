@@ -4,6 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Proyecto 1</title>
+
+  <!-- Estilos y js para la tien da -->
+  <link rel="stylesheet" href="{{ asset('css/styles.css')}}">
+  <script src="{{ asset('js/store.js')}}"></script>
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -174,8 +179,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('categorias.create') }}"><i class="fa fa-circle-o"></i> Añadir venta</a></li>
-            <li><a href="{{ route('categorias.list') }}"><i class="fa fa-circle-o"></i> Ver lista de ventas</a></li>
+            <li><a href="{{ route('ventas.create') }}"><i class="fa fa-circle-o"></i> Realizar venta </a></li>
+            <li><a href="{{ route('ventas.list') }}"><i class="fa fa-circle-o"></i> Ver lista de ventas </a></li>
           </ul>
         </li>
 

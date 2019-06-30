@@ -113,8 +113,8 @@ class ArticulosController extends Controller
      */
     public function destroy($id)
     {
-          $articulo = articulos::find($id);
-      $articulo->delete();
-     return redirect()->route('articulos.list'); 
+        $articulo = articulos::find($id);
+        $articulo->delete();
+        return redirect()->route('articulos.list'); 
     }
 }

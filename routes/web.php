@@ -33,10 +33,6 @@ Route::group(['middleware'=>['auth']], function () {
         Route::delete('/articulos/{articulo}', 'ArticulosController@destroy')->name('articulos.destroy');
         Route::put('/articulos/{articulo}', 'ArticulosController@update')->name('articulos.update');
 
-
-
-
-
         Route::get('/clientes', 'ClientesController@index')->name('clientes.list');
         Route::get('/clientes/{id}', 'ClientesController@show')->where('id', '[0-9]+')->name('clientes.show');
         Route::get('/clientes/nuevo', 'ClientesController@create')->name('clientes.create');
@@ -44,6 +40,16 @@ Route::group(['middleware'=>['auth']], function () {
         Route::post('/clientes', 'ClientesController@store')->name('clientes.store');
         Route::delete('/clientes/{cliente}', 'ClientesController@destroy')->name('clientes.destroy');
         Route::put('/clientes/{cliente}', 'ClientesController@update')->name('clientes.update');
+
+
+
+        Route::get('/ventas', 'VentasController@index')->name('ventas.list');
+        Route::get('/ventas/{id}', 'VentasController@show')->where('id', '[0-9]+')->name('ventas.show');
+        Route::get('/ventas/nuevo', 'VentasController@create')->name('ventas.create');
+        Route::get('/ventas/{venta}/editar', 'VentasController@edit')->where('id', '[0-9]+')->name('ventas.edit');
+        Route::post('/ventas', 'VentasController@store')->name('ventas.store');
+        Route::delete('/ventas/{venta}', 'VentasController@destroy')->name('ventas.destroy');
+        Route::put('/ventas/{venta}', 'VentasController@update')->name('ventas.update');
     }); 
 });
 
